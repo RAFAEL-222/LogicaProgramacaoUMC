@@ -1,0 +1,38 @@
+h1 {
+    font-size: 32px;
+    color: rgb(217, 255, 0);
+    background-color: lightcoral;
+    text-align: center;
+}
+
+h2{
+    font-size: 24px;
+    color: rgb(13, 3, 148);
+    background-color: aqua;
+    text-align: center;
+}
+
+p{
+    font-size: 16px;
+    color: rgb(1, 49, 1);
+    background-color: lightgreen;
+    text-align: justify;
+}
+
+#umc {
+    font-size: 24px;
+    color: blueviolet;
+    background-color: deepskyblue;
+}
+
+#parag1{
+    background-color: pink;
+}
+
+#parag2{
+    background-color: coral;
+}
+
+#parag3{
+    background-color: gray;
+}
