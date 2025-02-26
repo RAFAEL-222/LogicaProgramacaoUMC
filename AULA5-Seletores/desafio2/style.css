@@ -1,0 +1,64 @@
+body{
+    width: 50vw;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 35px;
+}
+
+
+h1#Titulo1{
+    color: rgb(44, 62, 80) ;
+    background-color:  rgb(236, 240, 241);
+    
+}
+
+h1#Titulo2{
+    color: rgb(39, 174, 96);
+    background-color: rgb(233, 247, 239);
+}
+
+h1#Titulo3{
+    color: rgb(243, 156, 18);
+    background-color: rgb(255, 243, 230);
+}
+
+h1#Titulo4{
+    color: rgb(142, 68, 173);
+    background-color: rgb(245, 230, 245);
+}
+
+/*----------------------------------------------------------------*/
+
+h2.subtitulo1{
+    color: rgb(231, 76, 60);
+    background-color: rgb(249, 235, 234);
+}
+
+h2.subtitulo2{
+    color: rgb(39, 174, 96);
+    background-color: rgb(233, 247, 239);
+}
+
+h2.subtitulo3{
+    color: rgb(243, 156, 18);
+    background-color: rgb(255, 243, 230);
+}
+
+h2.subtitulo4{
+    color:  rgb(142, 68, 173);
+    background-color: rgb(245, 230, 245);
+}
+
+p.texto{
+    font-size: 25px;
+    line-height: 1.2;
+    color: rgb(40, 119, 150);
+}
