@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulários</title>
+</head>
+<body>
+        <h1>Exemplo Formulário</h1>
+
+        <form action="">
+             
+             <p>
+                <label for="Nome">Nome Completo: </label>
+                <input type="text" id="nome" placeholder="Digite o seu nome:" required>
+             </p>
+             
+             <p>
+                <label for="aata">Data: </label>
+                <input type="date" id="data" required>
+             </p>
+             
+             <p>
+                <label for="number">Celular: </label>
+                <input type="number" id="number" required>
+             </p>
+
+             <p>
+                <label for="email">E-mail: </label>
+                <input type="email" id="email" required autocomplete="on">
+             </p>
+
+             <p>
+                <label for="senha">Senha: </label>
+                <input type="password" id="senha" required>
+             </p>
+             
+             <p>
+                <label for="mensagem">Reclamação: </label>
+                <textarea name="mensagem" id="mensagem" cols="50" rows="2" maxlength="100"></textarea>
+                <p>Numero maximo de 59 caracteres.</p>
+             </p>
+
+             <p>
+                <label for="cidade">Estados: </label>
+                <select name="cidade" id="cidade">
+                        <option value="sp">São Paulo</option>
+                        <option value="rj">Rio de Janeiro</option>
+                        <option value="mg">Minas Gerais</option>
+                        <option value="es">Espírito Santo</option>
+                </select>
+             </p>
+
+             <p>
+                <label for="esportes">Esportes favoritos: </label> <br>
+                <input type="checkbox" name="esportes" value="futebol"> Futebol <br>
+                <input type="checkbox" name="esportes" value="natacao">Natacao <br>
+                <input type="checkbox" name="esportes" value="basquete"> Basquete <br>
+             </p>
+
+             <p>
+                <label for="">Curso: </label> <br>
+                <input type="radio" name="curso" value="ADS"> ADS <br>
+                <input type="radio" name="curso" value="EngSof"> Engenharia de Software <br>
+                <input type="radio" name="curso" value="CinComp"> Ciencia da Computação <br>
+                <input type="radio" name="curso" value="sisInf"> Sistema de Informacao <br>
+             </p>
+
+             <p>
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+             </p>
+
+             
+        </form>
+        
+</body>
+</html>
