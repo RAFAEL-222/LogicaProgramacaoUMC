@@ -69,3 +69,14 @@ main {
 .img_card > img {
         width: 100%;
 }
+
+
+.card_item{
+      display:block;
+      text-align: left;
+      margin-left: ;
+
+}
+.frete_card {
+        color: green;
+}
