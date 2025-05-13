@@ -1,19 +1,15 @@
 <?php
-$serverName = "Localhost";
+$serverName = "localhost";
 $userName = "root";
 $password = "";
 $dbName = "faculdade";
 
-//Criando conexao
-$conn = new msqli($serverName, $userName, $password, $dbName);
+//Criando Conexão
+$conn = new mysqli($serverName, $userName, $password, $dbName);
 
-//Validacao de Conexao
-if($conn->connect_error){
-        echo "Conexao Falhou"
+//Validação de Conexão
+if ($conn->connect_error){
+    echo =  "Conexão Falhou";
 }
-else{
-        echo "Conexao feita com sucesso";
-}
-
 
 ?>
