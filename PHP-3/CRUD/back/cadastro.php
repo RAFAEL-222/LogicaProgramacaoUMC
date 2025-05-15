@@ -11,9 +11,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="">Início</a></li>
+                <li><a href="../index.php">Início</a></li>
                 <li><a href="">Cadastrar Usuário</a></li>
-                <li><a href="">Listas Usuários</a></li>
+                <li><a href="verificarCadastro.php">Listas Usuários</a></li>
             </ul>
         </nav>
     </header>
@@ -44,48 +44,55 @@
 
         <?php
 
-           if($_SERVER ["REQUEST_METHOD"] == "POST") {
-
+            if($_SERVER["REQUEST_METHOD"] == "POST") {
+                
                 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
                 try{
-                    //Puxar arquivo externo
+                    //Capturar um arquivo externo
                     include("../conexao/conexao.php");
 
-                    //Variaveis usuarios
-                    $nome =$_POST["nome"];
+                    //Variáveis usuários
+                    $nome = $_POST["nome"];
                     $sobrenome = $_POST["sobrenome"];
                     $email = $_POST["email"];
                     $curso = $_POST["curso"];
-
                     $prefixo = "1124";
                     $id = $prefixo . rand(100,999);
 
-                    //Consulta SQL
-                    $sql = "INSERT INTO faculdade01 (id, nome, sobrenome, email, curso) VALUES (?, ?, ?, ?`, ?)";
+                    //Consulta SQL 
+                    $sql = "INSERT INTO usuarios01 (id, nome, sobrenome, email, curso)  VALUES (?, ?, ?, ?, ?)";
 
-                    //Preparar a Consulta
-                    $stmt = $conn -> prepare($conn);
+                    //Preparar a consulta
+                    $stmt = $conn->prepare($sql);
 
-                    //Vincular as variaveis do usuario com a consulta SQL
-                    $stmt -> bind_param("sssss" , $id, $nome, $sobrenome, $email, $curso);
+                    //Vincular as variáveis do usuário com a consulta SQL
+                    $stmt->bind_param("sssss" , $id, $nome, $sobrenome, $email, $curso);
 
-                    //Executar a consulta 
-                    $stmt -> execute();
+                    //Executar a consulta
+                    $stmt->execute();
 
-                    //Exibindo a menagem de sucesso
-                    echo "<div class = 'mensagem sucesso'> Usuario Cadastrado com sucesso </div>";
+                    //Exibindo a mensagem de sucesso
+                    echo "<div class = 'mensagem sucesso'> Usuário cadastrado com sucesso </div>";
 
-                    //Encerrar a consulta AQL e conexao com o banco de dados
-                    $stmt -> close();
-                    $conn -> close();
+                    //Encerrar a consulta SQL e Conexão com o banco de dados
+                    $stmt->close();
+                    $conn->close();
                 }
                 catch (mysqli_sql_exception $e){
-                    echo "<div class = 'mensagem erro'> Erro ao Cadastrar" . $e->getMessage().  "</div>";
+                    echo "<div class = 'mensagem erro'> Erro ao cadastrar " . $e->getMessage() . "</div>";
                 }
-
+                
+            }
         ?>
 
     </main>
+
+
+
+
+    
+
+    
 </body>
 </html>
