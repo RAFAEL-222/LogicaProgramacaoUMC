@@ -62,8 +62,9 @@
                                                 echo var_dump($row);
         
                                                 
+
                                         }else {
-                                                echo "ELE NAO EXISTE"
+                                                echo "ELE NAo EXISTE"
 
                                         }
                                         
