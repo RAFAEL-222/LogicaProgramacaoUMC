@@ -15,7 +15,7 @@
                 <li><a href="verificarCadastro.php">Listas Usuários</a></li>
             </ul>
         </nav>
-    </header>
+    </header>  
 
     <main>
         <section id ="containerSection">
@@ -56,21 +56,52 @@
                                         $resultado = $stmt -> get_result();
                                         
                                         if($resultado ->num_rows > 0){
-                                                echo "ELE EXITE"
+                                                
                                                 //Armazenar as informacoes vindas do db
-                                                $row = $resultado ->fetch_assoc();
-                                                echo var_dump($row);
-        
+                                                $row = $resultado->fetch_assoc();
                                                 
 
-                                        }else {
-                                                echo "ELE NAo EXISTE"
+                                                echo"
 
+                                                        <table>
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th>ID</th>
+                                                                                <th>Nome</th>
+                                                                                <th>Sobrenome</th>
+                                                                                <th>E-email</th>
+                                                                                <th>Excluir</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                        <td>{$row['ID']}</td>
+                                                                        <td>{$row['NOME']}</td>
+                                                                        <td>{$row['SOBRENOME']}</td>
+                                                                        <td>{$row['EMAIL']}</td>
+                                                                        <td>
+                                                                                <form action='excluirCadastro.php' method='post'>
+                                                                                        <input type='hidden' name='{$row['ID']}'>
+                                                                                        <input type='submit' id='btn-excluir' 
+                                                                                        value='EXCLUIR'>
+                                                                                </form>
+
+                                                                        </td>
+                                                                </tbody>
+                                                        </table>
+                                                ";
+                                                
+                                        }else {
+                                                echo "<div class='m mensagem erro'> E-email $email nao encontrado </div>";
                                         }
                                         
-
-
+                                        //Encerra a consulta SQL
+                                        $stmt ->close();
+                                } else {
+                                        echo "<div class='mensagem erro'> Erro na consulta </div>";
                                 }
+
+                                //Encerrar a conexao com o banco de dados
+                                $conn ->close();
                         }
 
                 ?>

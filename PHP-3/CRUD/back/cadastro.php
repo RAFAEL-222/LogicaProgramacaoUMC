@@ -61,7 +61,7 @@
                     $id = $prefixo . rand(100,999);
 
                     //Consulta SQL 
-                    $sql = "INSERT INTO usuarios01 (id, nome, sobrenome, email, curso)  VALUES (?, ?, ?, ?, ?)";
+                    $sql = "INSERT INTO USUARIOS (id, nome, sobrenome, email, curso)  VALUES (?, ?, ?, ?, ?)";
 
                     //Preparar a consulta
                     $stmt = $conn->prepare($sql);

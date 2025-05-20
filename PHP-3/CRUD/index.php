@@ -12,7 +12,7 @@
         <p>Escolha uma das opcoes abaixo</p>
 
         <div class="menu">
-                <a href="back/cadastro´php">Cadastro</a>
+                <a href="back/cadastro.php">Cadastro</a>
                 <a href="back/verificarCadastro.php">Verificar Cadastro</a>
                 <a href="back/atualizarCadastro.php">Atualizar Cadastro</a>
                 <a href="back/verificarNota.php">Verificar Nota</a>
