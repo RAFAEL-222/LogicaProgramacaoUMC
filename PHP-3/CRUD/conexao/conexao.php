@@ -12,5 +12,4 @@ if ($conn->connect_error){
     echo "Conexão Falhou";
 }
 
-
 ?>
