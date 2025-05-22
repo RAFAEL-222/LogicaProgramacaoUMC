@@ -18,5 +18,6 @@
         <a href="back/verificarNota.php">Verificar Nota</a>
         <a href="back/atualizarNota.php">Atualizar Nota</a>
     </div>
+
 </body>
 </html>
