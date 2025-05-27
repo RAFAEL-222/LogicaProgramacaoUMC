@@ -1,0 +1,20 @@
+<?php
+    include("../conexao/conexao.php");
+    $nota_atividade = $_POST['nota_atividade'];
+    $nota_prova = $_POST['nota_prova'];
+
+    foreach ($mota_atividade as $id => $nota){
+        $nota_prova_individual = $nota_prova[$id];
+        $nota_final = $nota * 0.3 + $nota_prova_individual * 0.7;
+
+        $sql = "UPDATE usuarios SET nota_atividade = ?, nota_prova = ?, nota_final = ? 
+        WHERE ID = ?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("dddi", $nota, $nota_prova_individual, $nota_final, $id);
+        $stmt->execute();
+    }
+    $stmt->close();
+    $conn->cloase();
+    header("location: atualizarNota.php");
+?>
