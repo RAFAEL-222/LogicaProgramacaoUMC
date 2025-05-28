@@ -3,7 +3,7 @@
     $nota_atividade = $_POST['nota_atividade'];
     $nota_prova = $_POST['nota_prova'];
 
-    foreach ($mota_atividade as $id => $nota){
+    foreach ($nota_atividade as $id => $nota){
         $nota_prova_individual = $nota_prova[$id];
         $nota_final = $nota * 0.3 + $nota_prova_individual * 0.7;
 
@@ -15,6 +15,6 @@
         $stmt->execute();
     }
     $stmt->close();
-    $conn->cloase();
+    $conn->close();
     header("location: atualizarNota.php");
 ?>

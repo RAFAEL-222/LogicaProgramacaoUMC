@@ -71,12 +71,12 @@
                                         while($row = $resultado ->fetch_assoc()){
                                             echo "
                                             <tr>
-                                                <td>{$row['ID']}</td>
-                                                <td>{$row['NOME']}</td>
-                                                <td>{$row['SOBRENOME']}</td>
-                                                <td>{$row['NOTA_ATIVIDADE']}</td>
-                                                <td>{$row['NOTA_PROVA']}</td>
-                                                <td>{$row['NOTA_FINAL']}</td>
+                                                <td>{$row['id']}</td>
+                                                <td>{$row['nome']}</td>
+                                                <td>{$row['sobrenome']}</td>
+                                                <td>{$row['nota_atividade']}</td>
+                                                <td>{$row['nota_prova']}</td>
+                                                <td>{$row['nota_final']}</td>
                                             </tr>";
                                         }
                             echo"

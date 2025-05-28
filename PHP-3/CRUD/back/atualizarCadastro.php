@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pr-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifica Nota</title>
+    <title>Atualizar Cadastro</title>
     <link rel="stylesheet" href="../estilos/styleVerificar.css">
 </head>
 <body>
@@ -12,59 +12,53 @@
             <ul>
                 <li><a href="../index.php">Início</a></li>
                 <li><a href="cadastro.php">Cadastrar Usuário</a></li>
-                <li><a href="verificarCadastro.php">Listar Usuários</a></li>
+                <li><a href="verificarCadastro.php">Listas Usuários</a></li>
             </ul>
         </nav>
     </header>  
 
     <main>
         <section id="containerSection">
-            <form action="atualizarNota.php" method="post">
-                <select name="curso" id="curso" class="estilo">
-                    <option value="ads">Análise e Desenvolvimento de Sistemas</option>
-                    <option value="engenharia_software">Engenharia de Software</option>
-                    <option value="sistemas_informacao">Sistema da Informação</option>
-                    <option value="ciencias_computacao">Ciências da Computação</option>
-                </select>
-                <input type="submit" value="Buscar">
+            <form action="atualizarCadastro.php" method="post">
+                <input type="email" placeholder="Informe seu E-mail: " name="email" id="email">
+                <input type="submit" value="Buscar">                        
             </form>
         </section>
         <section>
             <?php   
                 
                 //Verificar se o $POST['CURSO'] esta vazio
-                if (isset($_POST["curso"])) {
+                if (isset($_POST["email"])) {
                     
-                   
                     //Chamar a conexao com o DB
                     include("../conexao/conexao.php");
 
                     //Salvar a informcao do curso selecionado
-                    $curso = $_POST["curso"];
+                    $email = $_POST["email"];
 
                     //Consulta SQL
-                    $sql = "SELECT * FROM USUARIOS WHERE curso = ?";
+                    $sql = "SELECT * FROM USUARIOS WHERE email = ?";
 
                     //preparar a consulta SQL junto da conexao
                     $stmt = $conn->prepare($sql);
                    
                     //Verificar se a conexao foi bem-sucedida
                     if ($stmt) {
-                        $stmt ->bind_param("s" , $curso);
+                        $stmt ->bind_param("s" , $email);
                         $stmt ->execute();
                         $resultado = $stmt->get_result();
                         
                         if ($resultado ->num_rows > 0) {
                             echo "       
-                                <form action = 'processaNota.php' method='post' id= 'form-nota'>       
+                                <form action = 'processaCadastro.php' method='post' id= 'form-nota'>       
                                     <table>
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nome</th>
                                                 <th>Sobrenome</th>
-                                                <th>Nota Atividade</th>
-                                                <th>Nota Prova</th>
+                                                <th>email</th>
+                                
                                             </tr>
                                         </thead>
                                         <tbody> ";
@@ -74,12 +68,17 @@
                                                     <td>{$row['id']}</td>
                                                     <td>{$row['nome']}</td>
                                                     <td>{$row['sobrenome']}</td>
+                                                    <td>{$row['email']}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{$row['id']}</td>
                                                     <td>
-                                                        <input type= 'number' name='nota_atividade[{$row['id']}]' required>
+                                                        <input type= 'text' name='nome[{$row['id']}]' required>
                                                     </td>
                                                     <td>
-                                                        <input type= 'number' name='nota_prova[{$row['id']}]' required>
+                                                        <input type= 'text' name='sobrenome[{$row['id']}]' required>
                                                     </td>
+                                                    <td>{$row['email']}</td>
                                                 </tr>";
                                             }
                             echo"
@@ -90,7 +89,7 @@
                                 "<input type='submit' value='Enviar'>
                                 </form>";
                         } else {
-                            echo "<div class= 'mensagem erro'>Esse $curso nao possui registros de usuarios</div>";
+                            echo "<div class= 'mensagem erro'>Esse $email nao possui registros de usuarios</div>";
                         }
 
                         $stmt ->close();
